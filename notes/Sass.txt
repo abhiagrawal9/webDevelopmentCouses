@@ -1,0 +1,134 @@
+SASS - css with superpowers is 😍
+
+//
+Variables
+Nesting in css
+Import scss files
+Create functions & calling them (@include)
+Extends the styles
+//
+
+
+--> Variables:
+
+$primary-color : #r22df1
+$secondary-color; #d4r3e2;
+$text-color: #f1f1f1;
+
+
+header{
+	color: $primary-color;
+}
+
+p{
+	color: $text-color
+}
+
+
+--> Nesting in css
+
+header{
+	color: $primary-color;
+	
+	nav{
+		display: fles;
+
+		ul{
+			list-style-type: none;
+		}
+	}
+
+	.heading{
+		color: $text-color;
+
+		&:hover{
+			color: $secondary-color;
+		}
+	}	
+
+	
+}
+
+
+--> Import scss files
+
+	variable.scss
+	theme.scss
+	main.scss
+
+
+	We can import variables and theme files in main file using below lines;
+
+
+	> in main.scss
+
+	@import './theme'
+	@import './variables'
+
+	note: we should not add extensions of files while importing.
+
+
+
+--> Create functions & calling them (@include)
+
+Creating functions:
+
+	@mixin important-text {
+ 		color: red;
+ 		font-size: 25px;
+  		font-weight: bold;
+  		border: 1px solid blue;
+	}
+
+Using the function :
+
+	selector {
+  		@include mixin-name;
+	}
+
+Eg: 
+	.danger {
+  		@include important-text;
+  		background-color: green;
+	}
+
+
+Note: A mixin can also include other mixins:
+
+	@mixin special-text {
+  		@include important-text;
+  		@include link;
+  		@include special-border;	
+	}
+
+
+--> Extends the styles
+
+	The @extend directive lets you share a set of CSS properties from one selector to another.
+
+
+	.button-basic  {
+  		border: none;
+  		padding: 15px 30px;
+  		text-align: center;
+  		font-size: 16px;
+  		cursor: pointer;
+	}
+
+	.button-report  {
+  		@extend .button-basic;
+  		background-color: red;
+	}
+
+	.button-submit  {
+  		@extend .button-basic;
+  		background-color: green;
+  		color: white;
+	}
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+

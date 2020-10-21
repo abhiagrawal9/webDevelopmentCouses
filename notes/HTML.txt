@@ -1,0 +1,285 @@
+HTML - hypertext mark up language (parsed from top to bottom)
+
+- extension : .html or .htm
+
+- Html does not care about white space.
+
+- Html 
+	- head
+		- meta (used to save information about website like charset, description, viewport)
+		  meta tags are self closing
+		- title (title of the document to show in the browser tab)
+		- link  (to link the external css files to the html doc)
+		  link tags are self closing
+	- body
+		- h1, h2, h3, h4, h5, h6 (block level)
+		- p
+		- b (bold) - strong (bold)
+		- i (italic)
+		- br (creates a new line)
+		  br tag is self closing
+		- hr (give a staring horizontal line across the page)
+		  hr tag is self closing
+		- big (makes the text bigger)
+		- small (makes the text smaller)
+		- sub (subscript to put down 2 in h2O) water formaulae
+		- sup (superscript to put up 2 in 10) 10 square
+
+
+- We can style the html elements using style attribute( inline style)
+
+	- Layout html elements
+		- header
+			- nav
+		- main
+			- article
+			- section
+			- aside
+		- footer
+
+- layout elements makes html more readable
+- layout elements makes parse ability good via search engines due to better search engine optimisation 
+
+		- a (link) take href attribute which contains the url
+		   	> use target attribute to open link in new tab, set target attribute to _blank
+
+			> The target attribute can have one of the following values:
+				_self - Default. Opens the document in the same window/tab as it was clicked
+				_blank - Opens the document in a new window or tab
+				_parent - Opens the document in the parent frame
+				_top - Opens the document in the full body of the window
+
+			> Use mailto: inside the href attribute to create a link that opens the user's 				  email program (to let them send a new email).
+			  eg: <a href="mailto:someone@example.com">Send email</a>
+
+			> link states in css are -> link, visited, hover, active
+			  eg->. a:link, a:visited, a:hover , a:active
+
+			> jump to other elements
+			  eg-> <a href="#C4">Jump to Chapter 4</a> where <h2 id="C4">Chapter 4</h2>
+
+
+		- img take src, alt attributes. We can set the size of the image using width / height
+		   attributes.	     
+		   > aspect ratio is important while resizing the image using width and height 					 attributes. We need to make sure we are keeping the same aspect ratio of the new 			 image as same as old aspect ratio of old image
+		     for eg : previous 300 x 200
+			          new 100 x 66      
+		   > We can also set only width and HTML will automatically adjust the aspect ratio 				 for us.             
+     	   > img is self closing tag
+		   > With HTML image maps, you can create clickable areas on an image.
+
+		- video , take src, 'controls' attribute, 
+		   > we can also give width and height to the video. If we will give only width, it           			 will automatically set the height of the video.
+       	   > we can set the thumbnail of the video, by setting the poster attribute.
+		   > 'autoplay' attribute the autoplay the video when page loads
+		   > 'loop' attribute to loop the video 
+		
+		   > we can embedded the YouTube videos in our website. We can use embed information 				 given by YouTube for a video and put it in our code. Basically it will be a 					 'iframe' tag information.
+
+
+
+		- Lists
+			1. Unordered list
+				- ul tag 
+					- li tag
+
+			2. Ordered list
+				- ol tag
+					- li tag
+				- we can set the type of list using type attribute, by default it is set to 1  				  i.e. number. We can set it to A, B, C using type = 'A' OR a, b, c using 
+                 type = 'a', for roman number use type = 'I' or type = 'i'
+				- By default, an ordered list will start counting from 1. If you want to start 				  counting from a specified number, you can use the start attribute:
+
+			3. description list
+				- dl tag		Defines a description list
+					- dt tag	Defines a term in a description list
+					- dd tag   Describes the term in a description list
+
+			- we can have nested lists as well.
+
+		
+		- Tables		
+	
+			- table tag
+
+				- caption (title of the table)
+				- thead
+					- tr
+					 - th
+				- tbody
+					- tr
+					 - td
+
+			Example:
+
+				<table>
+					<caption>Employee Details</caption>
+      				<thead>
+        				<tr>
+          					<th>Name</th>
+          					<th>Age</th>
+          					<th>Company</th>
+        				</tr>
+      				</thead>
+      				<tbody>
+        				<tr>
+          					<td>Abhishek</td>
+          					<td>27</td>
+          					<td>Mutual Mobile</td>
+        				</tr>
+        				<tr>
+          					<td>Simran</td>
+          					<td>25</td>
+          					<td>Mutual Mobile</td>
+        				</tr>
+      				</tbody>
+    			</table>
+
+		- div 
+			- Div is a block level element which is used to create containers.
+
+		- span 
+			- Span is a inline level element which is used to create containers.
+
+	
+		- input
+
+			- Input is self closing tag
+ 			- It takes type, name , id, value(default value), placeholder parameters etc.
+			- most common types are text, email, password, file, date, range etc.
+			- it also accepts type as checkbox or radio to create checkboxes and radio buttons.
+			- if radio button have same names then we can select only one radio button.
+			- we can select as many check boxes as we want
+			- we can set type as button as well for create button.
+
+
+		- textarea
+			- technically it is a input tag but it is big in size. We can define size by row 				  and columns. 
+			- We can set the default text between text area tags
+			- it is not self closing tag.
+
+
+		- Forms
+			- form tag
+			- forms is mostly will be a wrapper of multiple input types
+			- generally we give actions & method attributes for a form.
+
+		- iFrames
+			- it is a html element which is used to show a another web page into our web page
+			- iframe tag
+			- takes src attribute where we have to give the url
+			- we can set the width and height to set the size of the iframe
+			- we can remove the border of an iframe using frameborder="0" attribute
+			- we can set the text between iframe tags to set the text on page if iframe web 			      page is not loaded 
+
+
+		- Meta tags
+			- meta tags are used in head of the html file
+			- meta tags are used for meta data.
+			- we can save information about the web page using meta tags.
+			- Mostly 160 characters are good for the description meta tag
+			- We cab set generally description, author, keywords, viewport
+			- we can save keywords as comma separated list. (Html, tuturial, etc)
+
+
+		- title
+			- The title attribute defines some extra information about an element.
+			- The value of the title attribute will be displayed as a tooltip when you mouse 				  over the element.
+
+		- pre
+			- The HTML <pre> element defines preformatted text.
+			- The text inside a <pre> element is displayed in a fixed-width font (usually 					  Courier), and it preserves both spaces and line breaks:
+
+		- <em> Emphasized text
+		- <mark> Marked text
+		- <del> - Deleted text
+		- <ins> - Inserted text
+
+	
+		- blockquote
+			- The HTML <blockquote> element defines a section that is quoted from another 					  source.
+			- Browsers usually indent <blockquote> elements.
+
+		- q
+			- The HTML <q> tag defines a short quotation.
+           - Browsers normally insert quotation marks around the quotation.
+
+		- abbr
+			- The HTML <abbr> tag defines an abbreviation or an acronym, like "HTML", "CSS", 				  "Mr.", "Dr.", "ASAP", "ATM".
+			- Marking abbreviations can give useful information to browsers, translation 					  systems and search-engines.
+			- Tip: Use the global title attribute to show the description for the abbreviation/			  acronym when you mouse over the element. 
+
+		- address
+			- The HTML <address> tag defines the contact information for the author/owner of a 			  document or an article.
+			- The contact information can be an email address, URL, physical address, phone 				  number, social media handle, etc.
+			- The text in the <address> element usually renders in italic, and browsers will 				  always add a line break before and after the <address> element.
+
+		- cite
+			- The HTML <cite> tag defines the title of a creative work (e.g. a book, a poem, a 			  song, a movie, a painting, a sculpture, etc.).
+			- The text in the <cite> element usually renders in italic.
+
+		- Using CSS
+			- CSS can be added to HTML documents in 3 ways:
+
+			- Inline - by using the style attribute inside HTML elements
+			- Internal - by using a <style> element in the <head> section
+			- External - by using a <link> element to link to an external CSS file
+
+		- picture
+			- The HTML <picture> element gives web developers more flexibility in specifying 				  image resources.
+			- The <picture> element contains one or more <source> elements, each referring to 			  different images through the srcset attribute. This way the browser can choose 				  the image that best fits the current view and/or device.
+			- Each <source> element has a media attribute that defines when the image is the 				  most suitable.
+
+		- kbd
+			- The HTML <kbd> element is used to define keyboard input. The content inside is 				  displayed in the browser's default monospace font.
+
+		- <figure> and <figcaption>
+			- The <figure> tag specifies self-contained content, like illustrations, diagrams, 			  photos, code listings, etc.
+			- The <figcaption> tag defines a caption for a <figure> element. The <figcaption> 			  element can be placed as the first or as the last child of a <figure> element.
+			- The <img> element defines the actual image/illustration. 
+
+		- label
+			- The for attribute of the <label> tag should be equal to the id attribute of the 			  <input> element to bind them together.
+
+		- datalist
+			- The <datalist> element specifies a list of pre-defined options for an <input> 				  element.
+			- Users will see a drop-down list of the pre-defined options as they input data.
+			- The list attribute of the <input> element, must refer to the id attribute of the 			  <datalist> element.
+
+
+		- YouTube - Autoplay + Muted
+		  <iframe width="420" height="315"
+				src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+		  </iframe>
+
+
+		- HTML Web Storage Objects
+
+			- HTML web storage provides two objects for storing data on the client:
+
+				window.localStorage - stores data with no expiration date
+				window.sessionStorage - stores data for one session (data is lost when the 											  browser tab is closed)
+
+			- Before using web storage, check browser support for localStorage and 						  sessionStorage:
+
+				if (typeof(Storage) !== "undefined") {
+  					// Code for localStorage/sessionStorage.
+				} else {
+  					// Sorry! No Web Storage support..
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

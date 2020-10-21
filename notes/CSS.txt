@@ -1,0 +1,914 @@
+CSS : Cascading style sheet
+
+- inline css (style attribute)
+- internal css (style element in head)
+- external css (style css file linked to html)
+
+
+> If we put the same css for an element in all three above types, inline css will be applied.
+> power of css type is as follows: inline > internal > external
+
+CSS RULES
+--> Selectors
+--> Declaration block
+--> Declaration
+--> Property
+--> Value
+
+
+/** SELECTORS **/
+
+--> Element selectors
+	h1{}, p{} , img{}
+
+	> Element grouping
+	h1, h2 {}
+	
+--> ID selectors (ID should be unique for an element in the web page)
+	#idValue{}
+
+--> Class selectors (Class can be same for elements in the web page)
+	.className{}
+
+--> DIV and SPAN
+	div{} block level css grouping ; span{} inline level css grouping
+
+--> INHERITANCE
+	Children inherit the parent element styles.
+	Children is more powerful in styles.
+	Not all the properties can be inherited by children like border.
+
+--> Last rule
+	Css will last rule in the file for the same selector and apply it to the element.
+
+--> Specificity
+	CSS specificity rules.
+
+--> Universal selector
+	*{}
+	Least amount of specificity
+
+--> attribute selector [attribute]
+
+	>eg:	<a href="http://www.disney.com" target="_blank">disney.com</a>
+
+		a[target] {
+			  background: lightblue;
+		}
+
+
+	>eg:  "title" attribute containing the word "red".
+
+		[title~="red"] {
+ 			 border: 5px solid red;
+		}
+
+	>eg:  "title" attribute starting with "red".
+
+		[title^="red"] {
+ 			 border: 5px solid red;
+		}
+
+	>eg:  "title" attribute ending with the word "flower"
+
+		[title$="flower"] {
+ 			 border: 5px solid red;
+		}
+
+	>eg:  "title" attribute containing the value "flow".
+
+		[title*="flow"] {
+ 			 border: 5px solid red;
+		}
+
+
+/** COLORS **/
+
+--> Text color
+	div{color: red;} // 140 color names
+	div{color: #ffffff;} OR div{color: #fff;} // #000000 - #ffffff OR #000 - #fff
+	div{color: rgb(255,255,255);} // 0-255
+	div{color: rgba(255,255,255,255, 0.5);} // 0-255 & for a 0-1
+
+--> Background color
+	div{background-color:red;}
+	div{background:red;}
+
+
+/** Units **/
+/** Font size, width, height, pixels **/
+
+BY DEFAULT IN BROWSERS 32px
+
+--> Absolute
+	div{width: 100px;} // absolute size
+
+--> Percent value : Relative, depends on the parent
+	div{width: 80%} // width of the div will be 80% of the width of the parent element
+
+--> em value : Relative, depends on the parent
+	1 em = 16px // default  browser style
+	div{font-size: 2em;} // 32 px generally if parent is body
+
+--> rem value : Relative, depends on the root
+	1 rem = 16px // default  browser style
+	div{font-size: 2rem;} // 32 px generally if root is html
+
+--> vh : height - Relative, depends on the screen
+--> vw : width - Relative, depends on the screen
+	div{width: 80vw; height: 100vh;}
+
+// Default browser style
+
+--> Elements have default styles set by the browser.
+--> user agent stylesheet in chrome dev tools means it is coming from browser
+
+/** CALC function **/
+
+-->	we can perform math operations
+--> space sensitive
+	div{min-height: calc(100vh - 100px);}
+
+/** font-size , font-family **/
+	body{font-family:Helvetica;}
+	
+--> generic font family: serif, sans-serif, cursive, fantasy, monospace
+	h1{font-family: Verdana, Genava, Tohama, sans-serif;}
+
+--> Google fonts
+	--> one way is pass the link of css in the html head section
+	--> second was is to import in the css file at the top
+	Then use in the css code as font family property. 
+
+
+/** font-weight , font-style **/
+
+	div{font-weight: bold or bolder or lighter or if you have imported css fonts then 400, 700 depends on the font}
+
+	div{font-style : italic or oblique or normal(this is default);}
+
+/** text-align , text-indent **/
+
+
+	div{text-align: centre or right or left(this is default);}
+
+	div{text-indent: 20px or 2rem}. // please use only px or rem
+
+/** 
+ Line-height
+ Letter-spacing
+ Word-spacing
+ Text-transform
+ Text-decoration
+**/
+
+--> Line-height
+	it will be relative to parent
+	
+	div{line-height: 1.5em} // if not mentioned for the parent it will be depends on browser = 24px
+
+
+-->  Letter-spacing
+	div{letter-spacing: 5px}
+
+-->  Word-spacing
+	div{word-spacing: 20px}
+
+
+-->  Text-transform
+	div{text-transform: uppercase, capitalise, lowercase(this is default);}
+
+
+-->  Text-decoration
+	div{text-decoration: none or line-through or overline or underline;} // most for links
+
+
+/** CSS BOX MODEL **/
+
+content > padding > border > margin
+
+--> Padding
+	div{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-right: 5px;
+		padding-left: 5px;
+
+		padding top/bottom/left/right
+		padding: top/bottom left/right;
+		padding: top right bottom left;
+	}
+
+--> Margin
+	div{
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-right: 5px;
+		margin-left: 5px;
+
+		margin top/bottom/left/right
+		margin: top/bottom left/right;
+		margin: top right bottom left;
+	}
+
+--> Border
+
+	div{
+		border-style: solid ;
+		border-width; 5px or 0.5rem;
+		border-colour: red;
+
+		border: width style color;
+
+		border-top: width style color;
+		border-bottom: width style color;
+		border-right: width style color;
+		border-left: width style color;
+	}
+
+--> table borders into a single border->
+	
+		border-collapse: collapse;
+
+--> Border radius
+	div{
+		border: 5px solid red;
+		border-radius: 20px or 50%;
+	}
+
+--> Negative margin
+	using negative margin element can merge in other element
+	div{
+		margin-top: -5px;
+		margin-bottom: -5px;	
+	}
+
+
+--> Outline & offset
+
+content > padding > border > outline > margin
+
+	div{
+		outline-style: solid ;
+		outline-width; 5px or 0.5rem;
+		outline-colour: red;
+
+		outline: width style color;
+
+		outline-top: width style color;
+		outline-bottom: width style color;
+		outline-right: width style color;
+		outline-left: width style color;
+
+     --> offset <-- to move the outline in or out
+		
+		outline-offset: 5px; // out
+		outline-offset: -5px; // in
+	}
+
+
+
+/** DISPLAY **/
+
+	Block - starts in a new line and take full width
+	Inline - does not start in a new line and only takes up as much width as content space
+
+	eg:
+	.className{ display: block or inline;}
+
+
+
+--> Horizontal Centering of elements
+
+
+	body{ text-align: centre;}
+		> for block elements , text is gonna be horizontally centre aligned.
+		> for inline elements, element itself is gonna be centre aligned in the page
+
+
+	> to make the block level element, centre aligned we have to set the width and margin to "0 auto"
+
+
+*** Important ***
+
+	>for block level elements, browser is going to respect the top and bottom margin OR padding.
+	>for inline level elements, browser is not going to respect the top and bottom margin OR padding.
+
+	eg:
+	in below case we have ul > li > a
+
+	ul li a{
+		text-decoration:none;
+		text-transformation: uppercase;
+		letter-spacing: 1px;
+		background: blue;
+		color:yellow;
+		padding : 10px 20px; // in this case only padding left/ right will be applied
+		margin : 10px 20px;  // in this case only margin left/ right will be applied
+	}
+
+	> Because a is an inline level element so browser won't respect the top and bottom margin OR padding.
+
+	> To apply the top/ bottom padding or margin We have to change the inline element to block element
+
+	ul li a{
+		text-decoration:none;
+		text-transformation: uppercase;
+		letter-spacing: 1px;
+		background: blue;
+		color:yellow;
+		display : block;  // Added to make it block level element
+		padding : 10px 20px; // padding top/ bottom will be applied now
+		margin : 10px 20px;  // margin top/ bottom will be applied now
+	}
+
+
+--> ** inline-block **
+
+	if we want to apply the top/bottom margin or padding to an inline element. We have to change it block element as mentioned above. They will be taking the whole width.
+	
+*** But if we want to apply the top/bottom margin or padding to an inline element and also don't want them to change to block level element. We can set the display property to inline-block
+
+
+	ul li a{
+		text-decoration:none;
+		text-transformation: uppercase;
+		letter-spacing: 1px;
+		background: blue;
+		color: yellow;
+		display : inline-block;  // Added to make it inline-block
+		padding : 10px 20px; // padding top/ bottom will be applied now
+		margin : 10px 20px;  // margin top/ bottom will be applied now
+	}
+
+
+
+/** Box-Sizing **/
+
+
+	--> div{box-sizing: border-box;}
+
+	when we have one element with width 200 and height 200. i.e. 200x200 . Now if we will apply the padding of 20 px all 		around , I.e.  all four sides. Now without the box-sizing property , padding will be applied outside of the element, due 	to this our element will get bigger and size will be 240x240.
+
+-- we don't want that, we don't want to change the width/height of the element by adding padding and don't want to mess up the layout. for this we have to add box-sizing property to border-box. It will apply the padding inside the element and size will remain 200x200 in this case.
+
+So set the universal css in the starting i.e. 
+	*{box-sizing: border-box}
+
+
+
+//** display:none , opacity, visibility **//
+
+
+S--> div{display: none;}
+	> it will take the element out of the page, we can't see it or hover over it. It will be in html but not in the page
+
+--> div{opacity: 0 or 1 or between 0-1;} // adjust the transparent property
+	> 0 is complete transparent, 1 is complete visible
+
+--> div{visibility: hidden or visible(by default);}
+	> Element will be there in the page but It won't be visible, we can't see it but we can hover over it. It will be in 		  html also in the page but in the page it won't be visible
+
+
+//** 
+	background: url();
+	background-repeat
+	background-size
+	background-position
+	background-attachment
+//**
+
+
+--> .container{
+		background: url("./big.jpeg");
+		background-repeat: no-repeat, repeat-x, repeat-y, space, round, repeat(by default);
+		background-size: cover or contain;
+		background-position: center or bottom or left(by default) or right or top;
+		or
+		background-position : x% y%;
+		background-attachment: fixed or scroll;
+	}
+
+
+// ** linear gradient **//
+
+      > We can add linear gradient to the background. 
+      > We can add as many color we want in the below examples
+
+	div{
+		background: linear-gradient(red, green); to bottom (by defalut) from top to bottom > red to green
+		background: linear-gradient(to top, red, green); from bottom to top > red to green
+		background: linear-gradient(150deg, red, green); from 150 degrees > red to green
+		background: linear-gradient(to top left, red, green); from bottom to top left > red to green
+		background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)); to bottom (by defalut) from top to bottom 
+		background: linear-gradient(to left, rgba(0,0,0,0.3), rgba(0,0,0,0.9)); to bottom (by defalut) from right to left 
+	}
+
+
+// ** shorter way to add linear gradient and background image properties **//
+
+
+	div{
+		background: linear-gradient(rgba(color),rgba(color)), url('path') position/size repeat-val attachment;
+	}
+
+     eg: 
+     div{
+		background: linear-gradient(rgba(color),rgba(color)), url('./big.jpg') center/cover no-repeat fixed;
+	}
+
+
+
+// ** float, position, media-queries, z-index, ::before and :: after pseudo elements ** //
+
+
+	<div class = "banner">
+		<img src="./big.jpeg" alt="image">
+		<p> this is an paragraph</p>
+	</div>
+
+	webpage:
+			img
+			p
+
+--------------------------------------------------------
+	now in css
+	
+	img{
+		float: right;
+	}
+
+
+	webpage: 
+			p img
+--------------------------------------------------------
+	now in css
+	
+	img{
+		float: left;
+	}
+
+	webpage:
+		img p
+--------------------------------------------------------
+	now in css
+	
+	img{
+		float: left;
+	}
+
+	p{
+		clear: left;
+	}
+
+	webpage:
+			img
+			p
+--------------------------------------------------------
+
+
+
+--> Position
+	
+	1. Static 
+		by default all elements have position static.
+
+	2. Relative
+
+		by setting relative property to element we can move the element with respect to its original position. i.e its 			normal position, for moving the element we can use four below properties.
+
+		div{ 
+			postion: relative:
+			top: 50px; // move the element 50px down from the top position where element was sitting originally
+			left 4 rem; 
+			right 10% // move the element to the 10 % left from the right side
+			bottom: 3 em;
+		}
+
+		
+	3. Absolute 
+
+		we can set the property to absolute. It will check for the closest ancestor/ parent which has position relative.
+		if we don't have parent with position relative then it will be relative to the "body"
+
+
+		in below case we don't have ancestor with position relative
+
+			div{
+				position: absolute;
+				top: 0px or %; // it will move to bottom 0px from top	
+				right: 0px or %; // it will move to left 0px from right
+			}
+	
+
+			> by doing above our element will be sitting on the top right corner of the page because we don't have any 				parent element with the position relative so it will take body as a parent and will position relative to the 			body.
+
+   			> we can add position relative to any parent element but only to parent/ ancestor element. 
+
+			> not fixed, element with absolute position will be scroll when wen scroll the page, it won't be fixed on page
+
+
+	4. Fixed
+		it will be relative to the "document/web page"
+
+		It is same as absolute, the difference it is that it will be fixed on the page
+
+
+--> overflow
+
+	Add a scrollbar to the <div> element.
+		div {
+  			background-color: #eee;
+  			width: 200px;
+  			height: 70px;
+  			border: 1px dotted black;
+  			overflow:auto;
+
+			or
+			overflow-x:auto; // scrollbar in x direction
+
+			overflow-y:auto //scrol bar in y direction
+		}
+
+
+---> Media Queries:
+
+/**
+	min-width: starting from
+	max-width: up to
+**/ 
+
+	Syntax:
+
+	@media screen and (min-width: 576px) {
+		// css for the screen width starting from 576
+	}
+
+
+	> We can override the desired css properties in the media queries, however properties which we are not overriding will 	    stay In the page
+
+	> Syntax is important!
+
+	> We can add as many media queries as we want.
+
+	> if we use mutipple max-width , we can override the style with the properties which are part of higher max width 		  block...only which are common in both.
+	> Properties which are not common will be available till higher max width.
+	
+
+
+---> z index or z axis:
+	> Does not work with the position static. Works only with position absolute or relative.
+
+	> z index can manage the view of the element from top of the screen i.e. z index
+
+	> by default all have z index of 0;
+	
+	> div{z-index: 1 or 0 or -1;} 
+
+	> we can set any value for z index, its just that more positive value will look more closer then negative
+
+
+
+---> ::before and ::after pseudo elements
+
+	> according to latest css 3 syntax, use two colons after the element name for eg, p:: or link::
+
+	>*IMP** content property is required
+	>*IMP** does not work with images
+
+	> these pseudo elements  can use to add before and after CONTENT not element in the Dom
+
+	in html --> <p>I am Abhishek</p>
+	p::before{
+		content: 'hello ';
+	}
+
+	in web page --> hello I am Abhishek
+
+	p::after{ 
+		content: 'world';
+	}
+
+	in web page --> I am Abhishekworld
+
+ > Insert the image "smiley.gif" before, and after <p> elements, using the ::before and ::after pseudo-elements.
+ 
+	p::before{
+ 		 content: url(smiley.gif);
+	}
+
+	p::after{
+  		content: url(smiley.gif);
+	}
+
+// ** Css Selectors, Pseudo class selectors , Pseudo element selectors ** //
+
+--> *, Id, Class, html elment tag
+ 
+--> immediate sibling: div + p
+--> all siblings: div ~ p
+
+--> Descendent and child combinators
+	
+	Descendent 
+		div h1 {}
+		.header h1 {}
+	
+	child
+		div > h1 {}
+		.header > h1 {}
+
+--> ::first-line , ::first-letter
+
+
+	::first-line
+		p::first-line{ font-weight: bold;}
+
+	::first-letter
+		p::first-letter{ font-size: 2rem;}
+
+--> :hover (Pseudo class )
+
+	p:hover{}
+	.header:hover{}
+	a:hover{}
+
+--> :link , :active , :hover, :visited
+	
+	a:link{color: aqua;}
+	a:active{color: green;}
+	a:hover{color: yellow}
+	a:visited{color: red;}
+
+
+
+/* :root */
+	
+	:root{
+		//css will be applied to complete html
+		font-size: 100% // same as default: 1rem = 16px
+		font-size: 150% // increasing the browser font size // 24px
+	}
+
+	p{
+		font-size: 2rem; // 48px
+	}
+
+
+
+//**
+	transform: translate(), rotate(), scale(), skew()
+	transistion (change over time)
+	animation: (change over time with points)
+**//
+
+--->	tranform: translate();
+	
+	+value in tanslateX means move to right
+	-value in tanslateX means move to left
+	+value in tanslateY means move to bottom
+	-value in tanslateY means move to top
+
+	.one{
+		transform: translateX(30px or 50% of its actual width);
+		transform: translateY(40px or 40% of its actual height);
+		transform: translate(30px, 40px or 50% of width, 40% of height);
+		transform: translate(100px,200px);
+	}
+
+
+--->	tranform: scale();
+
+	.one{
+		transform: scaleX(2); // doubled in x direction
+		transform: scaleY(0.5); // halfed in y direction
+		transform: scale(2, 0.5); //doubled in x direction & halfed in y direction
+	}
+
+
+--->	tranform: rotate();
+
+	.one{
+		transform: rotateZ(145deg); // rotate the element 145 degrees in z direction(perpandicualr plane to the web page), 								  the same plane as web page
+		transform: rotate(145deg); // same as above, no diff between rotate and rotateZ
+	}
+	
+
+--->	tranform: skew();
+
+	.one{
+		transform: skewX(20deg or -40deg);
+		transform: skewY(15deg or -50deg); 
+		transform: skewY(15deg, 40deg or -50deg, -40deg);
+	}
+
+/**
+--> transition (change over time)
+--> transition-property
+--> transition-duration
+--> transition-delay
+**/
+
+	div{
+		background: red;
+		transition-property: background-colour or background;
+		transition-duration: 3s (ms or s)
+	}  
+	
+
+	div:hover{
+		background: green;
+	}
+
+	we can write as much properties to which we want to apply transition 
+		
+	div {
+  		width: 150px;
+  		height: 150px;
+  		background: red;
+  		transition-property: background, border-radius;
+  		transition-duration: 0.8s, 4s;
+		transition-delay: 4s; // delay the transition
+	}
+
+	div:hover {
+  		background: blue;
+  		border-radius: 10%;
+	}
+
+
+// ** shortcut for transition **//
+
+
+	transition: property-name duration delay<optional>; //delay is optional
+
+	
+	div {
+  		width: 150px;
+  		height: 150px;
+  		background: red;
+  		transition: background 2s, border-radius 3s; // without delay
+		transition: background 2s 1s, border-radius 3s 1s;  //with delay
+	}
+
+	div:hover {
+  		background: blue;
+  		border-radius: 10%;
+	}
+
+
+// for all properties if same duration or delay(if given)
+
+	transition: all 1s 3s<optional>
+
+
+
+// transition-timing function
+
+	transition: property duration function delay<optional>
+
+-->	ease is default
+-->	linear, ease-in, ease-out, ease-in-out
+
+	transition: all 2s ease;
+	transition: all 2s ease 3s;
+	transition: all 2s linear;
+	transition: all 2s ease-in;
+	transition: all 2s ease-out;
+	transition: all 2s ease-in-out;
+
+
+
+//** Animation **//
+
+
+Syntax;
+	
+	.animation{
+		animation-name: move;
+		animation-duration: 10s;
+		animation-iteration-count: 2; // we can also set it to infinite
+		
+		or
+
+		animation: move 10s 2;
+		animation: move 5s infinite;
+		
+	}
+
+	@keyframes move { //move is just a name // percentages are related to animation duration
+		0%{
+			//
+		}
+
+		50%{
+			//
+		}
+
+		100%{
+			//
+		}
+	}
+
+--> animation-fill-mode: forwards;
+
+
+//***
+	css variables
+	font awesome icons
+	text-shadow, box-shadow
+	browser prefixes
+	semantic html
+	emmet snippets
+***//
+
+--> css variables
+
+	> global variables
+	> local variables
+
+
+
+	global vars will be set in the root
+		 :root{
+			--primaryColor : #f1f1f1;
+			--secondaryColor : #fe42e4;
+			--mainTransition: all 0.4s linear
+		 }
+
+
+		.heading{
+			color : var(--primaryColor)
+		}
+		.text{
+			color : var(--secondaryColor)
+		}
+		a{
+			transition : var(--mainTransition)
+		}
+		a:hover{
+			color: var(--secondaryColor);
+		}
+
+	
+	local variable can se be set for the the element , those variable will be accessible by that element and all its 		children element.
+
+
+--> text-shadow, box-shadow
+
+	.heading{
+		text-shadow: x y blur color
+		text-shadow: 2px 5px 2px red;
+			if we don't want x or y we can put 0px
+		text-shadow: 0px 2px 1px red;	
+        	text-shadow: 2px 2px 5px green, 0 0 10px red;	
+	}
+
+	div{
+		width: 150px;
+		height: 150px;
+		background: blue;
+ 		box-shadow: x y blur color;
+		box-shadow: 2px 2px 5px green;
+		box-shadow: -2px -2px 5px green;
+	}
+
+
+--> second background image ("img_flwr.gif") to the <body> element. Make sure that "img_flwr.gif" is displayed on top of the 	current background image.
+
+	 background-image: url("img_flwr.gif"), url(paper.gif);
+
+
+--> radial gradient 
+
+	div {
+ 	 	background: radial-gradient(white, green);
+	}
+
+	div {
+ 	 	background: radial-gradient(circle, white, green);
+	}
+
+--> overflowed content for the <p> element should be signaled with an ellipsis (...)
+
+	p {
+	  	white-space: nowrap; 
+	 	width: 200px; 
+  		border: 1px solid #000000;
+ 	 	overflow: hidden;
+ 	 	text-overflow: ellipsis; // provides elippesis
+	}
+
+--> 	<p> element should wrap
+
+	word-wrap: break-word;
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+Flexbox -> flexible box layout module
+
+- helps to show element more dynamically/ flexible
+
+-- Parent : Flex container
+-- Children : Flex items
+
+We can add below property to convert an element into parent i.e. flex container
+
+	.container{
+		display: flex;
+	}
+
+--> We can add more properties to parent/container like flex-flow, justify-content, align-content, align-		items
+--> We can add more properties to children like order, flex, align-self....
+
+
+// ** Flex container or Parent element ** //
+
+	.parent{
+		background: red;
+		width: 150px;
+		height: 150px;
+		margin: 5px;
+
+		display: flex;		// it will show element in one row and all elements take width. Width 				 of items are flexible if I decrease the window width.
+ 
+		display: inline-flex; // works as normal inline , take width only much required for contents. Width 				 of items are not flexible if I decrease the window width.
+
+		flex-flow: row nowrap; // flex-direction flex-wrap // these are default values.
+
+		flex-flow: row wrap; // wrap means it will wrap the elements in next time if we decrease the width 				   of the window. It will try to keep the width of elements until reaches a point.
+
+		flex-flow: row wrap-reverse; // it will change the direction of wrap, first element will last.
+
+		flex-flow: column wrap; // items will act as a block level element, they will be taking a full 					   width if not mentioned. Also every item will start in a new line. Width of items are not 				   flexible if I decrease the window width.
+
+		flex-flow: row-reverse nowrap;
+
+		flex-flow: coloumn-reverse nowrap;
+	}
+
+
+---> Main Axis vs Cross Axis
+
+	display: flex;
+	flex-flow: row wrap;  //main axis    top left --------> top right 
+	flex-flow: row-reverse wrap;  // main axis   top left <-------- top right 
+
+	flex-flow: column wrap;  // main axis   top left 
+											 |
+											 |
+											 down
+										  bottom left
+
+
+	flex-flow: column-reverse wrap;  // main axis   top left 
+													^
+													up
+											 		|
+											 		|
+										  		bottom left
+
+
+	(reference : "Flexbox - axis" screenshot)
+
+
+---> align items and justify-content
+
+	.parent{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: stretch; // this is default value 
+		align-items: center; // element won't stretch and will show in middle. Height will be given only 										much required by the content	
+		align-items: flex-start;	
+		align-items: flex-end;	
+	}
+
+****important 
+	"Align items always refers to the positioning of flex items along the cross axis"
+
+
+
+	.parent{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		justify-content: flex-start;	
+		justify-content: flex-end;	
+	}
+
+
+****important 
+	"justify-content always refers to the positioning of flex items along the MAIN axis"
+
+
+	(REFERENCE: "Flexbox - AI - JC" Screenshot)
+
+
+---> align content 
+
+
+	.parent{
+		display: flex;
+		flex-flow: row wrap;
+		align-content: center;
+		align-content: flex-start;	
+		align-content: space-between;	
+		align-content: space-around;	
+	}
+
+****important 
+	"align-content always refers to cross axis but only if we have items in more then one line"
+
+
+
+
+// ** Flex items or children element ** //
+
+	.child{
+		color: red;
+		margin: 5 px;
+ 		padding: 4px;
+
+		order: 0 // by default
+		order: 1 or 2 or 3..
+		
+		align-self: ; // defines the alignment of the flex item with respect to cross axis
+
+	
+		flex: 0 1 auto; // defalut values stands for -> flex-grow flex-shrink flex-basis
+
+
+		flex-grow : 0 // standard value is 0, items will reach their max width defined and will not 								increase the width or in other terms will not grow
+
+		flex-grow : 1 // items will reach their max width defined and now will increase the width or in 							other terms will grow as required
+
+		flex-shrink : 1 // standard value is 1, items will decease their max width
+
+		flex-basis : auto // standard value is auto 
+					it basically relates to the main axis, we can set the height and width depends on the 					flow direction
+					if it is row, flex basis will depend on width
+
+		flex-basis 100 px; // changes the width to 100px if flow direction is row
+
+		flex-basis 100 px; // changes the height  to 100px if flow direction is column
+
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
