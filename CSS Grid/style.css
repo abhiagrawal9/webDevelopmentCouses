@@ -32,4 +32,32 @@
   grid-column: 1/-1;
 }
 
+.layout1 {
+  width: 600px;
+  height: 200px;
+  margin: 30px auto;
+  background-color: #ddd;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 30px;
+}
+.layout1 > * {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 30px;
+}
+.layout1 .l-main {
+  background-color: red;
+  grid-row: 1/span 2;
+}
+.layout1 .l-side1 {
+  background-color: red;
+}
+.layout1 .l-side2 {
+  background-color: red;
+}
+
 /*# sourceMappingURL=style.css.map */
